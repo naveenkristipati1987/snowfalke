@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: MASTER_DATA
+    database: MASTER_DATA     # optional if default
+    schema: MASTER_DATA
+    tables:
+      - name: S_PROD_INT
+        description: Source product integration table
+        columns:
+          - name: ROW_ID
+            description: Primary key
+          - name: NAME
+          - name: PART_NUM
+          - name: PROD_TYPE_CD
+          - name: ACTIVE_FLG
+          - name: CREATED
+          - name: LAST_UPD
+
+models:
+  - name: product_clean
+    description: Cleaned and deduplicated product data
+    columns:
+      - name: ROW_ID
+        description: Unique product row
+        tests:
+          - not_null
+          - unique
+      - name: PRODUCT_NAME
+        description: Uppercased product name
