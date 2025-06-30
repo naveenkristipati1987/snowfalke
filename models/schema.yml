@@ -4,7 +4,7 @@ models:
   - name: customer_orders_1
     description: "Customer-level order aggregation"
     columns:
-      - name: c_custkey
+      - name: c_name
         description: "Customer key"
         tests:
           - not_null
@@ -14,7 +14,7 @@ models:
   - name: top_customers
     description: "Customer-level order aggregation"
     columns:
-      - name: c_custkey
+      - name: c_name
         description: "Customer key"
         tests:
           - not_null
